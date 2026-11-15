@@ -8,7 +8,7 @@ Security fixes are applied to the latest version on the `main` branch. Older ver
 
 Please do **not** open a public GitHub issue for a security vulnerability or include exploit details in a public discussion.
 
-Report vulnerabilities privately through GitHub by contacting Sidharth S [@zidhuxd](https://zidhuxd.com/contact), or use GitHub's private vulnerability reporting feature for this repository when available.
+Report vulnerabilities through GitHub's private vulnerability reporting feature for this repository.
 
 When submitting a report, please include:
 

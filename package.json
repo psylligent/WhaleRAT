@@ -1,7 +1,7 @@
 {
   "name": "whale",
   "version": "2.0.0",
-  "description": "zidhuxd's cool idea",
+  "description": "Telegram & web-based Android RAT C2 for authorized security research",
   "main": "server.js",
   "engines": {
     "node": ">=20.0.0 <23.0.0"
@@ -10,7 +10,7 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "l",
+  "author": "psylligent",
   "license": "ISC",
   "dependencies": {
     "@simplewebauthn/server": "^8.3.7",

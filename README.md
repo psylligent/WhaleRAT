@@ -5,8 +5,8 @@
   ### Telegram & Web-Based Android Remote Administration Tool
 
 <p align="center">
-<a href="https://github.com/zidhuxdev/WhaleRAT/stargazers"><img src="https://img.shields.io/github/stars/zidhuxdev/WhaleRAT?style=for-the-badge&logo=github&color=yellow" alt="Stars"/></a> <a href="https://github.com/zidhuxdev/WhaleRAT/forks"><img src="https://img.shields.io/github/forks/zidhuxdev/WhaleRAT?style=for-the-badge&logo=github&color=blue" alt="Forks"/></a>
-<img src="https://komarev.com/ghpvc/?username=zidhuxdev&repo=WhaleRAT&style=for-the-badge&color=brightgreen&label=VIEWS" alt="Views"/>
+<a href="https://github.com/psylligent/WhaleRAT/stargazers"><img src="https://img.shields.io/github/stars/psylligent/WhaleRAT?style=for-the-badge&logo=github&color=yellow" alt="Stars"/></a> <a href="https://github.com/psylligent/WhaleRAT/forks"><img src="https://img.shields.io/github/forks/psylligent/WhaleRAT?style=for-the-badge&logo=github&color=blue" alt="Forks"/></a>
+<img src="https://komarev.com/ghpvc/?username=psylligent&repo=WhaleRAT&style=for-the-badge&color=brightgreen&label=VIEWS" alt="Views"/>
 <img src="https://img.shields.io/badge/Node.js-%3E%3D20.0.0-brightgreen?style=for-the-badge&logo=node.js" alt="Node.js"/>
 <img src="https://img.shields.io/badge/Deploy-Railway-blueviolet?style=for-the-badge&logo=railway" alt="Railway"/>
 </p>
@@ -17,7 +17,7 @@
 
 ## 🐋 What is WhaleRAT?
 
-**WhaleRAT is a A powerful Android RAT developed for defensive security testing and no port forwarding. Developed by <a href="https://github.com/zidhuxdev">@zidhuxd</a>**
+**WhaleRAT is a A powerful Android RAT developed for defensive security testing and no port forwarding. Maintained by psylligent**
 
 1. **Telegram Bot** — issue commands, receive data, and get real-time alerts directly inside Telegram.
 2. **Web Dashboard (C2 Panel)** — a full-featured browser-based UI for managing multiple devices simultaneously, viewing live feeds, logs, galleries, and more.
@@ -29,15 +29,11 @@
 
 <div align="center">
 
-<a href="http://cdn.zidhuxd.com/whaleratdemo.mp4" target="_blank" title="Click to Watch Full Video with Audio">
-  <img src="images/demo-preview.gif" alt="WhaleRAT Live Demonstration" width="900" style="border-radius: 8px; border: 1px solid #333;">
-</a>
+
 
 <br><br>
 
-<a href="http://cdn.zidhuxd.com/whaleratdemo.mp4" target="_blank">
-  <img src="https://img.shields.io/badge/▶_PLAY_FULL_DEMO_(WITH_SOUND)-c0392b?style=for-the-badge&logo=youtube&logoColor=white" alt="Play Full Demo Video with Sound"/>
-</a>
+
 
 <p align="center">
   <sub>🔊 Click the preview container or the button above to watch the full demo with audio (1:39)</sub>
@@ -219,7 +215,7 @@ The APK needs to point to **your** Railway URL before you install it on a device
 ### How to edit the APK with MT Manager:
 
 1. **Download [MT Manager](https://github.com/Yau08/MT-Manager/releases/download/v2.14.5/MT-Manager_2.14.5_v8a.apk)** and install it on your Android device
-2. Copy **[drop.apk](https://github.com/zidhuxdev/WhaleRAT/raw/refs/heads/main/app/drop.apk)** to your Android device
+2. Copy **[drop.apk](https://github.com/psylligent/WhaleRAT/raw/refs/heads/main/app/drop.apk)** to your Android device
 3. Open **MT Manager** → navigate to `drop.apk` → tap it → choose **"View"**
 4. Inside the APK, find and open the file **`assets/config.json`**
 5. You'll see this:
@@ -305,25 +301,11 @@ The web panel is accessible at `https://your-domain/` after logging in at `/logi
 
 ---
 
-### 🐋 WhaleRAT Pro
-
-The free build in this repo is the limited functional core. **WhaleRAT Pro** is for people who need the parts that actually matter in the field:
-
-- **Stealthier persistence** — survives reboots, uninstallation
-- **Antivirus bypass surface** — reduced foreground footprint, quieter permission prompts, hide from launcher/app list
-- **Tighter C2 hygiene** — more heavy UI Controls
-- **Custom modules on request** — tell me what you need and we scope it
-
-**No pressure either way — using this repo for free forever is completely fine. Pro just exists because people asked.**
-
----
-
-### 📡 Support, Guides & WhaleRAT Pro
+### 📡 Support & Guides
 
 | Channel | Where |
 |---|---|
-| ✈️ **Telegram** | [@zidhuxd](https://t.me/zidhuxd) — fastest, DM open |
-| 🌐 **Website** | [zidhuxd.com/contact](https://zidhuxd.com/contact) — form, if Telegram isn't your thing |
+| 🐋 **Repository** | [github.com/psylligent/WhaleRAT](https://github.com/psylligent/WhaleRAT) |
 
 ---
 
@@ -344,6 +326,6 @@ This project is open-source and distributed under the [MIT License](LICENSE).
 
 <div align="center">
 
-Made with ❤️ by <a href="https://github.com/zidhuxdev">Sidharth S ( @zidhuxd )</a>
+Maintained by psylligent
 
 </div>
