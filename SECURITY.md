@@ -28,7 +28,7 @@ Please allow reasonable time for a fix before publicly disclosing the issue.
 
 ## Safe and Authorized Testing
 
-WhaleRAT is intended only for authorized security research, defensive engineering, and academic study.
+PsyWatch is intended only for authorized security research, defensive engineering, and academic study.
 
 Test only on devices, accounts, and networks that you own or are explicitly authorized to assess.
 

